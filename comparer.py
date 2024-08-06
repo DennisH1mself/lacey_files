@@ -36,10 +36,10 @@ class conX:
         self.waitForSay('', txt)
 con = conX()
 def foundDirectMatch(file1path, file2path):
-    response = con.colorsNormal['r'] + 'Direct Match (same name, same content): ' + con.colorsBold['r'] + file1path + con.colorsNormal['r'] + ' == ' + con.colorsBold['r'] + file2path + con.resetStr
+    response = con.colorsNormal['r'] + 'Direct Match (same name, same source code): ' + con.colorsBold['r'] + file1path + con.colorsNormal['r'] + ' == ' + con.colorsBold['r'] + file2path + con.resetStr
     print(response)
 def foundInDirectMatch(file1path, file2path):
-    response = con.colorsNormal['r'] + 'Partial Direct Match (same content, similar name): ' + con.colorsBold['r'] + file1path + con.colorsNormal['r'] + ' == ' + con.colorsBold['r'] + file2path + con.resetStr
+    response = con.colorsNormal['r'] + 'Partial Direct Match (same source code, similar name): ' + con.colorsBold['r'] + file1path + con.colorsNormal['r'] + ' == ' + con.colorsBold['r'] + file2path + con.resetStr
     print(response)
 def foundContentMatch(file1path, file2path):
     response = con.colorsNormal['y'] + 'Content Match (same source code, different name): ' + con.colorsBold['y'] + file1path + con.colorsNormal['y'] + ' == ' + con.colorsBold['y'] + file2path + con.resetStr
@@ -53,10 +53,10 @@ for file1 in set1_file_content:
             foundDirectMatch(file1['path'], file2['path'])
         else:
             if file1['content'] == file2['content'] and (file1['path'].split('/')[-1] in file2['path'].split('/')[-1] or file2['path'].split('/')[-1] in file1['path'].split('/')[-1]):
-                foundContentMatch(file1['path'], file2['path'])
+                foundInDirectMatch(file1['path'], file2['path'])
             else:
                 if file1['content'] == file2['content']:
-                    foundInDirectMatch(file1['path'], file2['path'])
+                    foundContentMatch(file1['path'], file2['path'])
                 else:
                     if file1['path'].split('/')[-1] == file2['path'].split('/')[-1]:
                         foundNameMatch(file1['path'], file2['path'])
