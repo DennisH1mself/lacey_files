@@ -3,8 +3,8 @@ set1_path = 'test_files/testset1/'
 set2_path = 'test_files/testset2/'
 set1_files = os.listdir(set1_path)
 set2_files = os.listdir(set2_path)
-set1_file_content = [{'path': filep,'content': open(filep, 'r').read()} for filep in [set1_path + file for file in set1_files]]
-set2_file_content = [{'path': filep,'content': open(filep, 'r').read()} for filep in [set2_path + file for file in set2_files]]
+set1_file_content = [{'path': filep,'content': open(filep, 'rb').read()} for filep in [set1_path + file for file in set1_files]]
+set2_file_content = [{'path': filep,'content': open(filep, 'rb').read()} for filep in [set2_path + file for file in set2_files]]
 class conX:
     resetStr = "\033[1;0m"
 
