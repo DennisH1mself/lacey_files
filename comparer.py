@@ -1,6 +1,10 @@
+# Info and Settings
+
+set1_path = 'test_files/testset1/'  # Relative path to the folder containing the first set of files
+set2_path = 'test_files/testset2/'  # Relative path to the folder containing the second set of files
+
+# Script
 import os
-set1_path = 'test_files/testset1/'
-set2_path = 'test_files/testset2/'
 set1_files = os.listdir(set1_path)
 set2_files = os.listdir(set2_path)
 set1_file_content = [{'path': filep,'content': open(filep, 'rb').read()} for filep in [set1_path + file for file in set1_files]]

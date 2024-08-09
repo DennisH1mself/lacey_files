@@ -1,5 +1,10 @@
+# Info and Settings
+set1_path = 'test_files/duptest/' # Relative path to the folder containing the files to be checked for duplicates
+
+# Use the terminal to run the script
+
+# Script
 import os
-set1_path = 'test_files/duptest/'
 set1_files = os.listdir(set1_path)
 set1_file_content = [{'path': filep,'content': open(filep, 'rb').read()} for filep in [set1_path + file for file in set1_files]]
 class conX:
